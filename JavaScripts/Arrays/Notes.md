@@ -223,17 +223,3 @@ function isEqual(obj1, obj2) {
     return true;
   }
  https://jsfiddle.net/gyvfhs72/1/
-
- Hi all,
-Today is my last day at Tokopedia and I would like to take a moment to reflect upon and thank everyone who has been a part of this journey.
-Over the last 2.7 years I have thoroughly enjoyed working with the Web Platform, CM/IM, Core Teams here at Tokopedia and I am very thankful for the opportunities, professional guidance and support provided to me during the tenure. Any journey is incomplete without amazing peers. Therefore, I would like to thank all the amazing leads: @Deeksha Agarwal  @Komal Singh @Adi Umbas Primadharma @Glenn Hizkia  highly supportive backend team: @Ajay Yadav @Madhav Sharma @Saurabh Gupta @Amit Kumar Singh Chauhan @Rian Krishandi @Aman Verma @Davyn Vallerian @D'Wina Andrea @Laksono Bramantio @Prajnasatrya Sukur Suryanto @Radhian Amri @Yash Goel @Vinod Kumar Beniwal , awesome EP team: @Love Kumar @Aayush Khanna @Mayank AggarwalAji Dwiyono.
-
-Above all I would like to thank the highly patient and extremely supportive product team led by  @Yogi Sentosa @Putri Nafisah @Daffa Alif Pratama @Kinanti Pratami 
-Special thanks to the following people for everyday fun and delightful conversations:glenn.hizkia@tokopedia.com@Ham Richard Adhika Hartono @Rian Krishandi - will miss all the fun in meetings & over slack the most  
-@Kinanti Pratami  - one last time kamsahamnida friend  
-
-@Karan Singh Negi @Syed Sumair UL Islam @Shivam Mani Tripathi - for all the day to day conversations
-@Ishan Ghorela @Devendra Patidar @Syed Sumair UL Islam - for helping me out everyday
-@Syed Haani Hasan Rizvi - thank you for all the guidance and being an inspiring leader.
-
-Lets stay connected: LinkedIn
