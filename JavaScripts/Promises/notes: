@@ -1,0 +1,110 @@
+/* - Promise -> object 
+- promise.all 
+- Promise.race 
+- Promise.any
+- promise.allsellte [{status: "fulfilled", value: val}, {status : rejected, resuse: "sdjsdjf"}]
+- finally * 
+
+
+-- Promise -> 
+- finally
+- all
+- race
+- all
+
+=>
+mapLimit > 3 [11,1,1,1,1,] => [[1,1,1][1,1,1]]
+seriesMap -> 1,2,3,4 -> 1,2, 3
+retryMethod  -> API(faild, time, 4)
+
+-> leetcode
+promise poolling (n, 3)
+runner problem 
+10 Promise
+[1,2] - [5,5] -> timeOut/distace,
+
+-> Output based Question */
+
+/* Promise.resolve().then(() => console.log('1'));
+queueMicrotask(() => console.log('2'));
+console.log('3');
+setTimeout(() => {
+  console.log('4');
+}, 0);
+setTimeout(() => {
+  console.log('5');
+});
+new Promise(() => console.log('6'));
+(async () => console.log('7'))() */
+https://jsfiddle.net/41qc9zLe/
+
+
+<!-- [1,2,3,4,5,6].map((res)=> res* 2) [2, 4,6,8,10,12] -->
+
+10
+[1,2,3,4,5,6,7,8,9]
+
+Deewanshi Bansal
+11:40 PM
+Array.prototype.chop = function ()
+{
+    let result = [];
+    let chunk = [];
+
+    for (let i = 0; i < this.length; i++) 
+    {
+        chunk.push(this[i]);
+        
+        if (chunk.length == size) 
+        {
+            result.push(chunk);
+            chunk = [];
+        }
+    }
+    
+    if (chunk.length > 0) 
+    {
+        result.push(chunk);
+    }
+
+    return result;
+}
+Deewanshi Bansal
+11:55 PM
+async function batch(promiseArr, sz) {
+    let results = [];
+    
+    for (let i = 0; i < promiseArr.length; i += sz) 
+    {
+        let temp = promiseArr.slice(i, i + sz);
+        let res = await Promise.all(temp);
+        results.push(res);
+    }
+    return results;
+}
+Archit Jain
+12:06 AM
+function mapLimit(promises, limit) {
+  function chunkArray(arr, size) {
+    const chunked = [];
+    for (let i = 0; i < arr.length; i += size) {
+      chunked.push(arr.slice(i, i + size));
+    }
+    return chunked;
+  }
+
+  const chunks = chunkArray(promises, limit);
+  Promise.all(chunks.map(chunk => Promise.all(chunk)))
+    .catch(error => console.error(error));
+}
+
+
+
+
+
+
+
+
+
+
+

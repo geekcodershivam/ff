@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+document.getElementById()
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">click me</button>
+    <div id="counter"></div>
+    <div id="renderCounter"></div>
+    <input type="text" id="input" />
+  </body>
+  <script>
+    let counter = 0;
+    let trigger = 0;
+    const btn = document.getElementById("btn");
+    const counterItem = document.getElementById("counter");
+    const result = document.getElementById("renderCounter");
+    const inputSearch = document.getElementById("input");
+
+    // function debuncer(fn, delay) {
+    //   console.log("debuncer");
+    //   let timer;
+    //   return function (...args) {
+    //     clearTimeout(timer);
+    //     timer = setTimeout(() => {
+    //       fn(args);
+    //     }, delay);
+    //   };
+    // }
+
+    // const debuncerCount = debuncer(() => {
+    //   trigger += 1;
+    //   result.innerText = trigger;
+    // }, 800);
+
+    // btn.addEventListener("click", (e) => {
+    //   counterItem.innerText = ++counter;
+    //   debuncerCount();
+    // });
+
+    // const mydebuncers = (
+    //   fn,
+    //   delay,
+    //   options = { leading: true, trailing: false }
+    // ) => {
+    //   let timer;
+    //   let isLeading = false;
+
+    //   return function (...args) {
+    //     const context = this;
+    //     if (timer) {
+    //       clearTimeout(timer);
+    //     }
+    //     if (options.leading && !timer) {
+    //       fn.apply(context, args);
+    //       isLeading = true;
+    //     } else {
+    //       isLeading = false;
+    //     }
+
+    //     timer = setTimeout(() => {
+    //       if (options.trailing && !isLeading) {
+    //         fn.apply(context, args);
+    //       }
+    //     }, delay);
+
+    //     timer = null;
+    //   };
+    // };
+
+    // const onChange = (e) => {
+    //   console.log(e.target.value);
+    // };
+
+    // const mydebuncer = mydebuncers(onChange, 1000);
+
+    // inputSearch.addEventListener("keyup", mydebuncer);
+
+    // const throttle = (func, limit) => {
+    //   let lastFunc;
+    //   let lastRan;
+    //   return function () {
+    //     const context = this;
+    //     const args = arguments;
+    //     if (!lastRan) {
+    //       func.apply(context, args);
+    //       lastRan = Date.now();
+    //     } else {
+    //       clearTimeout(lastFunc);
+    //       lastFunc = setTimeout(function () {
+    //         if (Date.now() - lastRan >= limit) {
+    //           func.apply(context, args);
+    //           lastRan = Date.now();
+    //         }
+    //       }, limit - (Date.now() - lastRan));
+    //     }
+    //   };
+    // };
+
+    // const throttleL = (
+    //   fn,
+    //   limit,
+    //   options = { leading: true, trailing: true }
+    // ) => {
+    //   let lastFunc;
+    //   let lastArgs;
+    //   return function (...args) {
+    //     const context = this;
+    //     const { leading, trailing } = options;
+
+    //     const waitTimer = () => {
+    //       if (trailing && !lastArgs) {
+    //         fn.apply(context, args);
+    //         lastArgs = args;
+    //         lastFunc = setTimeout(waitTimer, limit);
+    //       } else {
+    //         lastFunc = null;
+    //       }
+    //     };
+
+    //     if (!lastFunc && leading) {
+    //       fn.apply(this, args);
+    //     } else {
+    //       lastArgs = args;
+    //     }
+    //     if (!lastFunc) {
+    //       lastFunc = setTimeout(waitTimer, wait);
+    //     }
+    //   };
+    // };
+
+    // const thruttle = (fn, delay) => {
+    //   let lastTimeId;
+    //   let lastRan;
+    //   return function (...args) {
+    //     const context = this;
+    //     if (!lastRan) {
+    //       fn.apply(context, args);
+    //       lastRan = Date.now();
+    //     } else {
+    //       clearTimeout(lastTimeId);
+    //       lastTimeId = setTimeout(() => {
+    //         if (Date.now() - lastRan >= delay) {
+    //           fn.apply(context, args);
+    //           lastRan = Date.now();
+    //         }
+    //       }, delay - (Date.now() - lastTimeId));
+    //     }
+    //   };
+    // };
+
+    function throttle(fn, delay) {
+      let timerId;
+      let isLastRun;
+      return function (...args) {
+        if (!isLastRun) {
+          fn.apply(this, args);
+          isLastRun = Date.now();
+        } else {
+          clearTimeout(timerId);
+          timerId = setTimeout(() => {
+            if (Date.now() - isLastRun >= delay) {
+              fn.apply(this, args);
+              isLastRun = Date.now();
+            }
+          }, delay - (Date.now - isLastRun));
+        }
+      };
+    }
+
+    const thruttleChange = throttle((e) => {
+      counterItem.innerText = ++counter;
+    }, 1000);
+
+    btn.addEventListener("click", thruttleChange);
+    // btn.addEventListener(
+    //   "click",
+    //   throttle(function () {
+    //     return console.log("HOLA! oppo", new Date().toUTCString());
+    //   }, 3000)
+    // );
+  </script>
+</html>
